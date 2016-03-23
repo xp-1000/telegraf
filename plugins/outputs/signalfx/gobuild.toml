@@ -1,0 +1,16 @@
+[vars]
+  duplLimit = "100"
+  testCoverage = 100.0
+
+[metalinter]
+  [metalinter.enabled]
+    golint = true
+    gofmt = true
+    varcheck = true
+    aligncheck = true
+    vet = true
+    deadcode = true
+    unconvert = true
+    structcheck = true
+    ineffassign = true
+    errcheck = true

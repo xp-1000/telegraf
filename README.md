@@ -243,6 +243,7 @@ want to add support for another service or third-party API.
 * opentsdb
 * prometheus
 * riemann
+* signalfx
 
 ## Contributing
 
