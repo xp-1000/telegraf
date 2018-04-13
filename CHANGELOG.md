@@ -26,6 +26,29 @@
 - [#3725](https://github.com/influxdata/telegraf/issues/3725): Exclude master_replid fields from redis input.
 
 ## v1.5.1 [2018-01-10]
+## v1.5.1.sfx2 [2018-03-13]
+
+### Release Notes
+
+- Minor bug fix in SignalFx output plugin to default to metric type gauge when no metric type can be mapped
+
+## v1.5.1.sfx1 [2018-01-16]
+
+### Release Notes
+
+- Minor bug fix to correctly batch metrics in SignalFx output plugin
+- Minor enhancement to ensure SignalFx metadata plugin has at least 1 go routine to gather process list information
+
+## v1.5.1.sfx0 [2018-01-12]
+
+### Release Notes
+
+- Rebase with upstream v1.5.1 release
+- Fixed bug in SignalFx Utilization plugin where disk.summary_utilization was reported with out a hostname
+- Distribute SignalFx metadata and process info collection across multiple go routines
+- Batch metric output to SignalFx
+
+## v1.5.1 [2017-01-10]
 
 ### Bugfixes
 
@@ -195,6 +218,14 @@
 - [#3175](https://github.com/influxdata/telegraf/issues/3175): Fix duplicate keys in perf counters sqlserver query.
 - [#3230](https://github.com/influxdata/telegraf/issues/3230): Fix panic in statsd p100 calculation.
 - [#3242](https://github.com/influxdata/telegraf/issues/3242): Fix arm64 packages contain 32-bit executable.
+
+## v1.4.0.sfx0 [2017-09-08]
+
+### Release Notes
+
+- This update disables all string type metrics (emitted as events) by default.
+  Please refer to the example config for information on enabling specific 
+  string metrics / events.
 
 ## v1.4 [2017-09-05]
 

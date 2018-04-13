@@ -5,3 +5,6 @@ tivan
 .idea
 *~
 *#
+output/*
+telegraf.exe
+/*.conf
