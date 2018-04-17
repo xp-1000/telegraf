@@ -1,3 +1,9 @@
 /build
 /telegraf
 /telegraf.gz
+.idea
+*~
+*#
+output/*
+telegraf.exe
+/*.conf

@@ -1,4 +1,4 @@
-# Telegraf [![Circle CI](https://circleci.com/gh/influxdata/telegraf.svg?style=svg)](https://circleci.com/gh/influxdata/telegraf) [![Docker pulls](https://img.shields.io/docker/pulls/library/telegraf.svg)](https://hub.docker.com/_/telegraf/)
+# Telegraf
 
 Telegraf is an agent written in Go for collecting, processing, aggregating,
 and writing metrics.
@@ -14,6 +14,9 @@ Telegraf is plugin-driven and has the concept of 4 distinct plugins:
 3. [Aggregator Plugins](#aggregator-plugins) create aggregate metrics (e.g. mean, min, max, quantiles, etc.)
 4. [Output Plugins](#output-plugins) write metrics to various destinations
 
+## Configuration and Installation
+Please refer to the SignalFx [documentation](https://github.com/signalfx/integrations/tree/release/telegraf)
+for more information on the installation and configuration of Telegraf.
 For more information on Processor and Aggregator plugins please [read this](./docs/AGGREGATORS_AND_PROCESSORS.md).
 
 New plugins are designed to be easy to contribute,
@@ -92,38 +95,14 @@ See usage with:
 ./telegraf config > telegraf.conf
 ```
 
-#### Generate config with only cpu input & influxdb output plugins defined:
-
-```
-./telegraf --input-filter cpu --output-filter influxdb config
-```
-
-#### Run a single telegraf collection, outputing metrics to stdout:
-
-```
-./telegraf --config telegraf.conf --test
-```
-
-#### Run telegraf with all plugins defined in config file:
-
-```
-./telegraf --config telegraf.conf
-```
-
-#### Run telegraf, enabling the cpu & memory input, and influxdb output plugins:
-
-```
-./telegraf --config telegraf.conf --input-filter cpu:mem --output-filter influxdb
-```
-
-
-## Configuration
+## Advanced Configuration Options
 
 See the [configuration guide](docs/CONFIGURATION.md) for a rundown of the more advanced
 configuration options.
 
 ## Input Plugins
 
+* [signalfx-metadata](./plugins/inputs/signalfx_metadata)
 * [aerospike](./plugins/inputs/aerospike)
 * [amqp_consumer](./plugins/inputs/amqp_consumer) (rabbitmq)
 * [apache](./plugins/inputs/apache)
@@ -253,13 +232,14 @@ Telegraf can also collect metrics via the following service plugins:
 Telegraf is able to parse the following input data formats into metrics, these
 formats may be used with input plugins supporting the `data_format` option:
 
+* [Collectd](./docs/DATA_FORMATS_INPUT.md#collectd)
+* [Graphite](./docs/DATA_FORMATS_INPUT.md#graphite)
 * [InfluxDB Line Protocol](./docs/DATA_FORMATS_INPUT.md#influx)
 * [JSON](./docs/DATA_FORMATS_INPUT.md#json)
-* [Graphite](./docs/DATA_FORMATS_INPUT.md#graphite)
-* [Value](./docs/DATA_FORMATS_INPUT.md#value)
 * [Nagios](./docs/DATA_FORMATS_INPUT.md#nagios)
 * [Collectd](./docs/DATA_FORMATS_INPUT.md#collectd)
 * [Dropwizard](./docs/DATA_FORMATS_INPUT.md#dropwizard)
+* [Value](./docs/DATA_FORMATS_INPUT.md#value)
 
 ## Processor Plugins
 
@@ -268,13 +248,14 @@ formats may be used with input plugins supporting the `data_format` option:
 
 ## Aggregator Plugins
 
+* [signalfx_util](./plugins/aggregators/signalfx_util)
 * [basicstats](./plugins/aggregators/basicstats)
 * [minmax](./plugins/aggregators/minmax)
 * [histogram](./plugins/aggregators/histogram)
 
 ## Output Plugins
 
-* [influxdb](./plugins/outputs/influxdb)
+* [signalfx](./plugins/outputs/signalfx)
 * [amon](./plugins/outputs/amon)
 * [amqp](./plugins/outputs/amqp) (rabbitmq)
 * [aws kinesis](./plugins/outputs/kinesis)
@@ -286,6 +267,7 @@ formats may be used with input plugins supporting the `data_format` option:
 * [file](./plugins/outputs/file)
 * [graphite](./plugins/outputs/graphite)
 * [graylog](./plugins/outputs/graylog)
+* [influxdb](./plugins/outputs/influxdb)
 * [instrumental](./plugins/outputs/instrumental)
 * [kafka](./plugins/outputs/kafka)
 * [librato](./plugins/outputs/librato)
