@@ -1,3 +1,9 @@
+## v1.6.0-sfx0 [2018-04-16]
+
+### Release Notes
+
+- SignalFx Packaging for Telegraf 1.6.0
+
 ## v1.6 [2018-04-16]
 
 ### Release Notes
