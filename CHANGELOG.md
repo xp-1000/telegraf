@@ -3,6 +3,42 @@
 ### Release Notes
 
 - SignalFx Packaging for Telegraf 1.6.0
+## v1.6.3 [2018-05-21]
+
+### Bugfixes
+
+- [#4127](https://github.com/influxdata/telegraf/issues/4127): Fix intermittent panic in aerospike input.
+- [#4130](https://github.com/influxdata/telegraf/issues/4130): Fix connection leak in jolokia2_agent.
+- [#4136](https://github.com/influxdata/telegraf/pull/4130): Fix jolokia2 timeout parsing.
+- [#4142](https://github.com/influxdata/telegraf/pull/4142): Fix error parsing dropwizard metrics.
+- [#4149](https://github.com/influxdata/telegraf/issues/4149): Fix librato output support for uint and bool.
+- [#4176](https://github.com/influxdata/telegraf/pull/4176): Fix waitgroup deadlock if url is incorrect in apache input.
+
+## v1.6.2 [2018-05-08]
+
+### Bugfixes
+
+- [#4078](https://github.com/influxdata/telegraf/pull/4078): Use same timestamp for fields in system input.
+- [#4091](https://github.com/influxdata/telegraf/pull/4091): Fix handling of uint64 in datadog output.
+- [#4099](https://github.com/influxdata/telegraf/pull/4099): Ignore UTF8 BOM in JSON parser.
+- [#4104](https://github.com/influxdata/telegraf/issues/4104): Fix case for slave metrics in mysql input.
+- [#4110](https://github.com/influxdata/telegraf/issues/4110): Fix uint support in cratedb output.
+
+## v1.6.1 [2018-04-23]
+
+### Bugfixes
+- [#3835](https://github.com/influxdata/telegraf/pull/3835): Report mem input fields as gauges instead counters.
+
+- [#3835](https://github.com/influxdata/telegraf/issues/3835): Report mem input fields as gauges instead counters.
+- [#4030](https://github.com/influxdata/telegraf/issues/4030): Fix graphite outputs unsigned integers in wrong format.
+- [#4043](https://github.com/influxdata/telegraf/issues/4043): Report available fields if utmp is unreadable.
+- [#4039](https://github.com/influxdata/telegraf/issues/4039): Fix potential "no fields" error writing to outputs.
+- [#4037](https://github.com/influxdata/telegraf/issues/4037): Fix uptime reporting in system input when ran inside docker.
+- [#3750](https://github.com/influxdata/telegraf/issues/3750): Fix mem input "cannot allocate memory" error on FreeBSD based systems.
+- [#4056](https://github.com/influxdata/telegraf/pull/4056): Fix duplicate tags when overriding an existing tag.
+- [#4062](https://github.com/influxdata/telegraf/pull/4062): Add server argument as first argument in unbound input.
+- [#4063](https://github.com/influxdata/telegraf/issues/4063): Fix handling of floats with multiple leading zeroes.
+- [#4064](https://github.com/influxdata/telegraf/issues/4064): Return errors in mongodb SSL/TLS configuration.
 
 ## v1.6 [2018-04-16]
 
