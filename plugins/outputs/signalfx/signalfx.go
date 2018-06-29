@@ -10,6 +10,7 @@ import (
 	"github.com/influxdata/telegraf/plugins/outputs"
 	"github.com/influxdata/telegraf/plugins/outputs/signalfx/parse"
 	"github.com/signalfx/golib/datapoint"
+	"github.com/signalfx/golib/datapoint/dpsink"
 	"github.com/signalfx/golib/event"
 	"github.com/signalfx/golib/sfxclient"
 )
@@ -26,7 +27,7 @@ type SignalFx struct {
 	exclude            map[string]bool
 	include            map[string]bool
 	ctx                context.Context
-	client             *sfxclient.HTTPSink
+	client             dpsink.Sink
 	dps                chan *datapoint.Datapoint
 	evts               chan *event.Event
 	done               chan struct{}
@@ -110,10 +111,11 @@ func (s *SignalFx) SampleConfig() string {
 /*Connect establishes a connection to SignalFx*/
 func (s *SignalFx) Connect() error {
 	// Make a connection to the URL here
-	s.client = sfxclient.NewHTTPSink()
-	s.client.AuthToken = s.APIToken
-	s.client.DatapointEndpoint = s.DatapointIngestURL
-	s.client.EventEndpoint = s.EventIngestURL
+	client := sfxclient.NewHTTPSink()
+	client.AuthToken = s.APIToken
+	client.DatapointEndpoint = s.DatapointIngestURL
+	client.EventEndpoint = s.EventIngestURL
+	s.client = client
 	s.ctx = context.Background()
 	s.dps = make(chan *datapoint.Datapoint, s.ChannelSize)
 	s.evts = make(chan *event.Event, s.ChannelSize)
@@ -215,6 +217,7 @@ outer:
 // GetObjects - converts telegraf metrics to signalfx datapoints and events, and pushes them on to the supplied channels
 func (s *SignalFx) GetObjects(metrics []telegraf.Metric, dps chan *datapoint.Datapoint, evts chan *event.Event) {
 	for _, metric := range metrics {
+		log.Println("D! Outputs [signalfx] processing the following measurement: ", metric)
 		var timestamp = metric.Time()
 		var metricType datapoint.MetricType
 		var metricTypeString string
