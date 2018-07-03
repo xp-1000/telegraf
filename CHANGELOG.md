@@ -26,6 +26,7 @@
 - [#4271](https://github.com/influxdata/telegraf/pull/4271): Add support for solr 7 to the solr input.
 
 ## v1.7.1 [unreleased]
+## v1.7.1 [2018-07-03]
 
 ### Bugfixes
 
