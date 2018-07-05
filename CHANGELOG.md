@@ -10,6 +10,34 @@
 ### Release Notes
 
 - SignalFx Packaging for Telegraf 1.7.0
+## v1.8 [unreleased]
+
+### Release Notes
+
+### New Inputs
+
+- [tengine](./plugins/inputs/tengine/README.md) - Contirbuted by @ertaoxu
+
+### Features
+
+- [#4236](https://github.com/influxdata/telegraf/pull/4236): Add SSL/TLS support to redis input.
+- [#4160](https://github.com/influxdata/telegraf/pull/4160): Add tengine input plugin.
+- [#4262](https://github.com/influxdata/telegraf/pull/4262): Add power draw field to nvidia_smi plugin.
+- [#4271](https://github.com/influxdata/telegraf/pull/4271): Add support for solr 7 to the solr input.
+
+## v1.7.1 [unreleased]
+## v1.7.1 [2018-07-03]
+
+### Bugfixes
+
+- [#4277](https://github.com/influxdata/telegraf/pull/4277): Treat sigterm as a clean shutdown signal.
+- [#4284](https://github.com/influxdata/telegraf/pull/4284): Fix selection of tags under nested objects in the JSON parser.
+- [#4135](https://github.com/influxdata/telegraf/issues/4135): Fix postfix input handling multi-level queues.
+- [#4334](https://github.com/influxdata/telegraf/pull/4334): Fix syslog timestamp parsing with single digit day of month.
+- [#2910](https://github.com/influxdata/telegraf/issues/2910): Handle mysql input variations in the user_statistics collecting.
+- [#4293](https://github.com/influxdata/telegraf/issues/4293): Fix minmax and basicstats aggregators to use uint64.
+- [#4290](https://github.com/influxdata/telegraf/issues/4290): Document swap input plugin.
+- [#4316](https://github.com/influxdata/telegraf/issues/4316): Fix incorrect precision being applied to metric in http_listener.
 
 ## v1.7 [2018-06-12]
 
