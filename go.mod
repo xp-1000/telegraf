@@ -17,7 +17,6 @@ require (
 	github.com/Microsoft/ApplicationInsights-Go v0.4.2
 	github.com/Microsoft/go-winio v0.4.9 // indirect
 	github.com/Shopify/sarama v1.24.1
-	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/aerospike/aerospike-client-go v1.27.0
 	github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4
 	github.com/amir/raidman v0.0.0-20170415203553-1ccc43bfb9c9
@@ -49,14 +48,13 @@ require (
 	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
 	github.com/glinton/ping v0.1.4-0.20200311211934-5ac87da8cd96
 	github.com/go-logfmt/logfmt v0.4.0
-	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/go-redis/redis v6.12.0+incompatible
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/goburrow/modbus v0.1.0
 	github.com/goburrow/serial v0.1.0 // indirect
 	github.com/gobwas/glob v0.2.3
 	github.com/gofrs/uuid v2.1.0+incompatible
-	github.com/gogo/protobuf v1.2.2-0.20190723190241-65acae22fc9d
+	github.com/gogo/protobuf v1.3.1
 	github.com/golang/geo v0.0.0-20190916061304-5b978397cfec
 	github.com/golang/protobuf v1.3.5
 	github.com/google/go-cmp v0.4.0
@@ -87,7 +85,6 @@ require (
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/leesper/go_rng v0.0.0-20190531154944-a612b043e353 // indirect
 	github.com/lib/pq v1.3.0 // indirect
-	github.com/mailru/easyjson v0.0.0-20180717111219-efc7eb8984d6 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1
 	github.com/mdlayher/apcupsd v0.0.0-20190314144147-eb3dd99a75fe
 	github.com/miekg/dns v1.0.14
@@ -102,17 +99,17 @@ require (
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect
 	github.com/opentracing-contrib/go-observer v0.0.0-20170622124052-a52f23424492 // indirect
-	github.com/opentracing/opentracing-go v1.0.2 // indirect
 	github.com/openzipkin/zipkin-go-opentracing v0.3.4
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.5.1
 	github.com/prometheus/client_model v0.2.0
 	github.com/prometheus/common v0.9.1
 	github.com/safchain/ethtool v0.0.0-20200218184317-f459e2d13664
-	github.com/samuel/go-zookeeper v0.0.0-20180130194729-c4fab1ac1bec // indirect
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b // indirect
 	github.com/shirou/gopsutil v2.20.7+incompatible
 	github.com/shopspring/decimal v0.0.0-20200105231215-408a2507e114 // indirect
+	github.com/signalfx/golib/v3 v3.3.0
+	github.com/signalfx/signalfx-go v1.6.23-0.20200309181559-3419dc1d4944
 	github.com/sirupsen/logrus v1.4.2
 	github.com/soniah/gosnmp v1.25.0
 	github.com/streadway/amqp v0.0.0-20180528204448-e5adc2ada8b8
@@ -146,7 +143,7 @@ require (
 	gopkg.in/gorethink/gorethink.v3 v3.0.5
 	gopkg.in/jcmturner/gokrb5.v7 v7.3.0 // indirect
 	gopkg.in/ldap.v3 v3.1.0
-	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
+	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/olivere/elastic.v5 v5.0.70
 	gopkg.in/yaml.v2 v2.2.5
 	gotest.tools v2.2.0+incompatible // indirect
