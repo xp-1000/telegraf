@@ -121,6 +121,7 @@
 
   - Many documentation updates
   - New [code examples](https://github.com/influxdata/telegraf/tree/master/plugins/processors/starlark/testdata) for the [Starlark processor](https://github.com/influxdata/telegraf/blob/master/plugins/processors/starlark/README.md)
+## v1.11.1 [2019-06-25]
 
 #### Bugfixes
 
