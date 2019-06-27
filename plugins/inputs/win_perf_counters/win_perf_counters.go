@@ -44,7 +44,7 @@ var sampleConfig = `
     ]
     Measurement = "win_cpu"
     # Set to true to include _Total instance when querying for all (*).
-    # IncludeTotal=false
+    IncludeTotal = true
     # Print out when the performance counter is missing from object, counter or instance.
     # WarnOnMissing = false
 
@@ -127,14 +127,49 @@ var sampleConfig = `
     Measurement = "win_mem"
 
   [[inputs.win_perf_counters.object]]
-    # Example query where the Instance portion must be removed to get data back,
-    # such as from the Paging File object.
-    ObjectName = "Paging File"
+    # Physical disk times and queues
+    ObjectName = "PhysicalDisk"
+    Instances = ["*"]
     Counters = [
-      "% Usage",
+      "Avg. Disk sec/Read", "Avg. Disk sec/Transfer", "Avg. Disk sec/Write"
     ]
-    Instances = ["_Total"]
-    Measurement = "win_swap"
+    IncludeTotal = true
+    Measurement = "win_physical_disk"
+
+  [[inputs.win_perf_counters.object]]
+    # Logical disk times and queues
+    ObjectName = "LogicalDisk"
+    Instances = ["*"]
+    Counters = [
+      "Disk Transfers/sec", "Disk Reads/sec", "Disk Writes/sec",
+      "Disk Read Bytes/sec", "Disk Write Bytes/sec",
+      "Free Megabytes", "% Free Space",
+    ]
+    IncludeTotal = true
+    Measurement = "win_logical_disk"
+
+  [[inputs.win_perf_counters.object]]
+    # Paging File
+    ObjectName = "Paging File"
+    Instances = ["*"]
+    Counters = [
+		"% Usage", "% Usage Peak"
+    ]
+    IncludeTotal = true
+    Measurement = "win_paging_file"
+
+  [[inputs.win_perf_counters.object]]
+    # Network Interface
+    ObjectName = "Network Interface"
+    Instances = ["*"]
+    Counters = [
+      "Bytes Total/sec", "Bytes Received/sec", "Bytes Sent/sec",
+      "Current Bandwidth", "Packets Received/sec", "Packets Sent/sec",
+      "Packets Received Errors", "Packets Outbound Errors", "Packets Received Discarded",
+      "Packets Outbound Discarded"
+    ]
+    IncludeTotal = true
+    Measurement = "win_network_interface"
 `
 
 type Win_PerfCounters struct {

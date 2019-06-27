@@ -1,5 +1,6 @@
 # Telegraf [![Circle CI](https://circleci.com/gh/influxdata/telegraf.svg?style=svg)](https://circleci.com/gh/influxdata/telegraf) [![Docker pulls](https://img.shields.io/docker/pulls/library/telegraf.svg)](https://hub.docker.com/_/telegraf/)
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://www.influxdata.com/slack)
+# Telegraf
 
 Telegraf is an agent for collecting, processing, aggregating, and writing metrics.
 
@@ -112,7 +113,11 @@ telegraf --help
 ```
 telegraf config > telegraf.conf
 ```
+## Configuration and Installation
+Please refer to the SignalFx [documentation](https://github.com/signalfx/integrations/tree/release/telegraf)
+for more information on the installation and configuration of Telegraf.
 
+## Advanced Configuration Options
 #### Generate config with only cpu input & influxdb output plugins defined:
 
 ```
@@ -148,6 +153,7 @@ For documentation on the latest development code see the [documentation index][d
 
 ## Input Plugins
 
+* [signalfx-metadata](./plugins/inputs/signalfxmetadata)
 * [activemq](./plugins/inputs/activemq)
 * [aerospike](./plugins/inputs/aerospike)
 * [amqp_consumer](./plugins/inputs/amqp_consumer) (rabbitmq)
@@ -343,6 +349,17 @@ For documentation on the latest development code see the [documentation index][d
 * [zipkin](./plugins/inputs/zipkin)
 * [zookeeper](./plugins/inputs/zookeeper)
 
+Telegraf is able to parse the following input data formats into metrics, these
+formats may be used with input plugins supporting the `data_format` option:
+
+* [Collectd](./docs/DATA_FORMATS_INPUT.md#collectd)
+* [Graphite](./docs/DATA_FORMATS_INPUT.md#graphite)
+* [InfluxDB Line Protocol](./docs/DATA_FORMATS_INPUT.md#influx)
+* [JSON](./docs/DATA_FORMATS_INPUT.md#json)
+* [Nagios](./docs/DATA_FORMATS_INPUT.md#nagios)
+* [Collectd](./docs/DATA_FORMATS_INPUT.md#collectd)
+* [Dropwizard](./docs/DATA_FORMATS_INPUT.md#dropwizard)
+* [Value](./docs/DATA_FORMATS_INPUT.md#value)
 ## Parsers
 
 - [InfluxDB Line Protocol](/plugins/parsers/influx)
@@ -397,7 +414,10 @@ For documentation on the latest development code see the [documentation index][d
 
 ## Aggregator Plugins
 
+* [signalfx_util](./plugins/aggregators/signalfxutil)
 * [basicstats](./plugins/aggregators/basicstats)
+* [signalfx_util](./plugins/aggregators/signalfx_util)
+* [minmax](./plugins/aggregators/minmax)
 * [final](./plugins/aggregators/final)
 * [histogram](./plugins/aggregators/histogram)
 * [merge](./plugins/aggregators/merge)
@@ -406,6 +426,7 @@ For documentation on the latest development code see the [documentation index][d
 
 ## Output Plugins
 
+* [signalfx](./plugins/outputs/signalfx)
 * [influxdb](./plugins/outputs/influxdb) (InfluxDB 1.x)
 * [influxdb_v2](./plugins/outputs/influxdb_v2) ([InfluxDB 2.x](https://github.com/influxdata/influxdb))
 * [amon](./plugins/outputs/amon)
@@ -427,6 +448,7 @@ For documentation on the latest development code see the [documentation index][d
 * [graylog](./plugins/outputs/graylog)
 * [health](./plugins/outputs/health)
 * [http](./plugins/outputs/http)
+* [influxdb](./plugins/outputs/influxdb)
 * [instrumental](./plugins/outputs/instrumental)
 * [kafka](./plugins/outputs/kafka)
 * [librato](./plugins/outputs/librato)

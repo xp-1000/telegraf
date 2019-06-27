@@ -405,3 +405,12 @@ upload-nightly:
 %.deb %.rpm %.tar.gz %.zip: export DESTDIR = build/$(GOOS)-$(GOARCH)$(GOARM)$(cgo)-$(pkg)/telegraf-$(version)
 %.deb %.rpm %.tar.gz %.zip: export buildbin = build/$(GOOS)-$(GOARCH)$(GOARM)$(cgo)/telegraf$(EXEEXT)
 %.deb %.rpm %.tar.gz %.zip: export LDFLAGS = -w -s
+
+windows:
+	docker run --rm -ti -v "$(CURDIR):C:\src" -v "$(CURDIR)\output:C:\output" golang:1.12.6-windowsservercore-ltsc2016 powershell C:\src\scripts\build_sfx.ps1
+
+linux:
+	docker run --rm -ti -v "$(CURDIR):/src" -v "$(CURDIR)/output:/output" golang:1.12.5 bash /src/scripts/build_sfx.sh
+
+.PHONY: deps telegraf telegraf.exe install test test-windows lint vet test-all \
+	package clean docker-image fmtcheck uint64 windows linux
