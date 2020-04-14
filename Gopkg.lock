@@ -511,6 +511,7 @@
   name = "github.com/google/go-cmp"
   packages = [
     "cmp",
+    "cmp/cmpopts",
     "cmp/internal/diff",
     "cmp/internal/function",
     "cmp/internal/value",
@@ -1202,7 +1203,6 @@
   ]
   pruneopts = ""
   revision = "a2144134853fc9a27a7b1e3eb4f19f1a76df13c9"
-  source = "https://github.com/golang/crypto.git"
 
 [[projects]]
   branch = "master"
@@ -1231,7 +1231,6 @@
   ]
   pruneopts = ""
   revision = "a680a1efc54dd51c040b3b5ce4939ea3cf2ea0d1"
-  source = "https://github.com/golang/net.git"
 
 [[projects]]
   branch = "master"
@@ -1247,7 +1246,6 @@
   ]
   pruneopts = ""
   revision = "d2e6202438beef2727060aa7cabdd924d92ebfd9"
-  source = "https://github.com/golang/oauth2.git"
 
 [[projects]]
   branch = "master"
@@ -1259,7 +1257,6 @@
   ]
   pruneopts = ""
   revision = "42b317875d0fa942474b76e1b46a6060d720ae6e"
-  source = "https://github.com/golang/sync.git"
 
 [[projects]]
   branch = "master"
@@ -1276,7 +1273,6 @@
   ]
   pruneopts = ""
   revision = "7c4c994c65f702f41ed7d6620a2cb34107576a77"
-  source = "https://github.com/golang/sys.git"
 
 [[projects]]
   digest = "1:5acd3512b047305d49e8763eef7ba423901e85d5dd2fd1e71778a0ea8de10bd4"
@@ -1312,7 +1308,6 @@
   pruneopts = ""
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
-  source = "https://github.com/golang/text.git"
 
 [[projects]]
   branch = "master"
@@ -1556,6 +1551,7 @@
     "github.com/golang/protobuf/ptypes/empty",
     "github.com/golang/protobuf/ptypes/timestamp",
     "github.com/google/go-cmp/cmp",
+    "github.com/google/go-cmp/cmp/cmpopts",
     "github.com/gorilla/mux",
     "github.com/harlow/kinesis-consumer",
     "github.com/harlow/kinesis-consumer/checkpoint/ddb",

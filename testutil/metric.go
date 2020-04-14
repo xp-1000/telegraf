@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/metric"
 )
@@ -45,6 +46,11 @@ func newMetricDiff(metric telegraf.Metric) *metricDiff {
 	return m
 }
 
+// IgnoreTime disables comparison of timestamp.
+func IgnoreTime() cmp.Option {
+	return cmpopts.IgnoreFields(metricDiff{}, "Time")
+}
+
 func MetricEqual(expected, actual telegraf.Metric) bool {
 	var lhs, rhs *metricDiff
 	if expected != nil {
@@ -73,7 +79,9 @@ func RequireMetricEqual(t *testing.T, expected, actual telegraf.Metric) {
 	}
 }
 
-func RequireMetricsEqual(t *testing.T, expected, actual []telegraf.Metric) {
+// RequireMetricsEqual halts the test with an error if the array of metrics
+// are not equal.
+func RequireMetricsEqual(t *testing.T, expected, actual []telegraf.Metric, opts ...cmp.Option) {
 	t.Helper()
 
 	lhs := make([]*metricDiff, 0, len(expected))
@@ -84,7 +92,7 @@ func RequireMetricsEqual(t *testing.T, expected, actual []telegraf.Metric) {
 	for _, m := range actual {
 		rhs = append(rhs, newMetricDiff(m))
 	}
-	if diff := cmp.Diff(lhs, rhs); diff != "" {
+	if diff := cmp.Diff(lhs, rhs, opts...); diff != "" {
 		t.Fatalf("[]telegraf.Metric\n--- expected\n+++ actual\n%s", diff)
 	}
 }
