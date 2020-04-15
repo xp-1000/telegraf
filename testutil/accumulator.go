@@ -52,6 +52,14 @@ func (a *Accumulator) NMetrics() uint64 {
 	return atomic.LoadUint64(&a.nMetrics)
 }
 
+func (a *Accumulator) GetTelegrafMetrics() []telegraf.Metric {
+	metrics := []telegraf.Metric{}
+	for _, m := range a.Metrics {
+		metrics = append(metrics, FromTestMetric(m))
+	}
+	return metrics
+}
+
 func (a *Accumulator) FirstError() error {
 	if len(a.Errors) == 0 {
 		return nil
